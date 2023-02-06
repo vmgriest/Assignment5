@@ -12,14 +12,39 @@ public class ConversionCalculator
 
         while(!userIn.equals("exit"))
         {
-            System.out.println("Please input your query. For example, 1km = m.");
+            System.out.println("Please input your query. (g = oz, kg = lb, mm = in, km = mi)");
             System.out.println("Enter 'exit' to exit the program");
             userIn = scnr.nextLine();
 
 
-            if(userIn.equals("g to oz"))
+            if(userIn.equals("g = oz"))
             {
               grams(scnr);
+            } 
+
+            else if(userIn.equals("kg = lb"))
+            {
+              kilograms(scnr);
+            } 
+
+            else if(userIn.equals("mm = in"))
+            {
+              milimeters(scnr);
+            } 
+
+            else if(userIn.equals("km = mi"))
+            {
+              kilometers(scnr);
+            }
+
+            else if(userIn.equals("exit"))
+            {
+              break;
+            }
+
+            else
+            {
+                System.out.println("Bad input");
             } 
         }
   
@@ -27,9 +52,8 @@ public class ConversionCalculator
             
     public static void grams(Scanner scnr)
     {
-        //System.out.println("abc " + myString);
         String userIn = "";
-        System.out.println("Please an amount or 'exit' to change conversion");
+        System.out.println("Please enter an amount or 'exit' to change conversion");
         Float myAmount = (float) 0.0;
         userIn = scnr.nextLine();
         if (!userIn.equals("exit"))
@@ -38,13 +62,83 @@ public class ConversionCalculator
             myAmount = TryParseFloat(userIn);
             if (myAmount == null)
             {
-                System.out.println("inside grams bad input " + userIn);  
+                System.out.println("Bad input " + userIn);  
             }
             else
             {
-                Float myOunce = myAmount * 4;
+                Float myOunce = (float) (myAmount * 0.035274);
                 System.out.println("myOuunce = " + myOunce);
             }
+            System.out.println("");
+        }
+    }
+
+    public static void kilograms(Scanner scnr)
+    {
+        String userIn = "";
+        System.out.println("Please enter an amount or 'exit' to change conversion");
+        Float myAmount = (float) 0.0;
+        userIn = scnr.nextLine();
+        if (!userIn.equals("exit"))
+        {
+            System.out.println("inside kilgrams " + userIn);
+            myAmount = TryParseFloat(userIn);
+            if (myAmount == null)
+            {
+                System.out.println("Bad input " + userIn);  
+            }
+            else
+            {
+                Float myPounds = (float) (myAmount * 2.205);
+                System.out.println("Pounds = " + myPounds);
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void milimeters(Scanner scnr)
+    {
+        String userIn = "";
+        System.out.println("Please enter an amount or 'exit' to change conversion");
+        Float myAmount = (float) 0.0;
+        userIn = scnr.nextLine();
+        if (!userIn.equals("exit"))
+        {
+            System.out.println("inside milimeters " + userIn);
+            myAmount = TryParseFloat(userIn);
+            if (myAmount == null)
+            {
+                System.out.println("Bad input " + userIn);  
+            }
+            else
+            {
+                Float myInches = (float) (myAmount * 0.0393701);
+                System.out.println("Inches = " + myInches);
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void kilometers(Scanner scnr)
+    {
+        String userIn = "";
+        System.out.println("Please enter an amount or 'exit' to change conversion");
+        Float myAmount = (float) 0.0;
+        userIn = scnr.nextLine();
+        if (!userIn.equals("exit"))
+        {
+            System.out.println("inside kilometers " + userIn);
+            myAmount = TryParseFloat(userIn);
+            if (myAmount == null)
+            {
+                System.out.println("Bad input " + userIn);  
+            }
+            else
+            {
+                Float myMiles = (float) (myAmount * 0.621371);
+                System.out.println("Miles = " + myMiles);
+            }
+            System.out.println("");
         }
     }
 
